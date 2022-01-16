@@ -2,3 +2,23 @@ Demonstration of IPC using Shared Memory technique
 Shared Memory is a kernel resource. Applications can request for it and map into their virtual address space
 This IPC way is ideal when there is single publisher and multiple users and large data needs to be shared.
 For multiple publishers, synchronisation mechanisms are needed which can increase the time of execution.
+
+Shared memory name must be unique and should begin with /
+
+Publisher Flow:
+===============
+    shm_open()     --> open shared memory objects
+    fftruncate()   --> to resize the fd linked with shared memory, it's 0 in beginning
+    mmap()         --> map shared memory into virtual address space of application
+                       -- write into memory adddress pointer
+    munmap()       --> release the memory mapped from virtual address space
+    close()
+
+Subscriber Flow:
+===============
+    shm_open()     --> open shared memory objects
+    mmap()         --> map shared memory into virtual address space of application
+                       -- read from memory adddress pointer
+    munmap()       --> release the memory mapped from virtual address space
+    close()
+
