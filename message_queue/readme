@@ -1,2 +1,16 @@
 Code to use Message Queues to demonstrate IPC between a sender and receiver application
 Message Queues are suitable for use in scenario with multiple servers and single client. 
+
+A unique string name is needed for the message queue starting with /
+
+Sender Flow:
+    mq_open()   --> to open message queue
+    mq_send()   --> enqueue the message
+    mq_close()  --> release the opened MQ
+
+Receiver Flow:
+    mq_open()    --> open the message queue
+    select()     --> to wait for meesages being received on MQ
+    mq_receive() --> dequeue the message
+    mq_unlink()  --> release the opened MQ, kernel can erase it if free
+
