@@ -1,0 +1,2 @@
+Code to use Message Queues to demonstrate IPC between a sender and receiver application
+Message Queues are suitable for use in scenario with multiple servers and single client. 

@@ -1,0 +1,9 @@
+IPC can be acheived using signals on Linux too:
+ 1. Signal from OS to application, e.g. SIGINT on Ctrl+C
+        code1_int.c
+
+ 2. Signal that can be raised by an application itself using raise()
+        code2_raise.c
+
+ 3. Signal raised by one application impacting other : kill()
+        code3_kill.c

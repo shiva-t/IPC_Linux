@@ -1,0 +1,4 @@
+Demonstration of IPC using Shared Memory technique
+Shared Memory is a kernel resource. Applications can request for it and map into their virtual address space
+This IPC way is ideal when there is single publisher and multiple users and large data needs to be shared.
+For multiple publishers, synchronisation mechanisms are needed which can increase the time of execution.

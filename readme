@@ -1,0 +1,8 @@
+Linux applications can implement IPC through various methods.
+Some of those have been implmented here, using some demo code
+The implementations are for:
+	1. Unix Sockets: single server, single client
+	2. Unix Sockets: Server is multiplexed for multiple client requests
+	3. Message Queues
+	4. Shared Memory
+	5. Signals : OS to application, application to application

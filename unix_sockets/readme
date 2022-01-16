@@ -1,0 +1,4 @@
+Implementation of Unix Socket : Server and client applications
+The client initiates connection with the server and sends a set of values to server, the server is expected to add those and return the same.
+
+The server is not multiplexed here, so only one client connection and interaction holds good here.
