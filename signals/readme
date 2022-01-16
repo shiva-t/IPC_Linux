@@ -1,9 +1,19 @@
 IPC can be acheived using signals on Linux too:
+
+signal() syscal can be used to define private handlers for some of the existing SIGANLS
+
  1. Signal from OS to application, e.g. SIGINT on Ctrl+C
-        code1_int.c
+        Pressing Ctrl+C raises SIGINT signal for the application,
+        the handler for this signal can be redefined in the code, as in:
+        --  code1_int.c
 
  2. Signal that can be raised by an application itself using raise()
-        code2_raise.c
+        An application can raise some signal on itlsef using raise() syscall,
+        handler for that event can be redefined again:
+        -- code2_raise.c
 
  3. Signal raised by one application impacting other : kill()
-        code3_kill.c
+        Signals like SIGUSR1 are user defined and handlers can be defined for them using signal()
+        An application can raise kill() sycall for other application pid with the SIGUSR1 signal
+        The application with PID and defined handler is reached for:
+        -- code3_kill
